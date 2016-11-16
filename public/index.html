@@ -1,46 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <!-- Roboto Font -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,700i" rel="stylesheet">
-
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/created-tweets.css" type="text/css" />
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+</head>
 
-  <body>
-
+<body>
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png">
-      <span class="header">Tweeter</span>
+        <img class="logo" src="/images/bird.png">
+        <span class="header">Tweeter</span>
     </nav>
-
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets/" method="post">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <input type="submit" value="Tweet">
-          <span class="counter">140</span>
-        </form>
-      </section>
-    </main>
+        <section class="new-tweet">
+            <h2>Compose Tweet</h2>
+            <form action="/tweets/" method="post">
+                <textarea name="text" placeholder="What are you humming about?"></textarea>
+                <input type="submit" value="Tweet">
+                <span class="counter">140</span>
+            </form>
+            </section>
+                    <section id="created-tweets">
+            <article>
+                <header>
+                <img class="avatar" src="/images/avatartwit.jpg">
+                 <span class = "userhandle">
+                @caught_clean
+                </span>
+                <h2 class = "head-text">
+                Nathan Eyerley
+                </h2>
 
-  </body>
+                </header>
+                <p class = "tweet-text">
+                  How do I into a twit
+                </p>
+                <footer>
+                <p class ="foot-text">
+                10 secs ago
+                </p>
+                </footer>
+            </article>
+                </section>
+
+
+
+
+    </main>
+</body>
+
 </html>

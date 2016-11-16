@@ -1,0 +1,62 @@
+#created-tweets {
+  background-color: #white;
+  border-color: #d0cdcd;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  margin-right: 2em;
+  margin-left: 2em;
+
+
+}
+#created-tweets .tweet-text {
+  margin: 30px 8px 30px 8px;
+  font-size: 14pt;
+
+}
+
+#created-tweets header {
+  background-color: #eeeeee;
+  border-color: #eeeeee;
+  border-style: solid;
+  border-width: 1px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  padding : 4px;
+
+
+
+}
+#created-tweets .avatar {
+  height: 53px;
+  width: 53px;
+  float: left;
+  margin-right: 12px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+
+}
+#created-tweets .head-text {
+  margin: 18px;
+
+
+}
+#created-tweets .userhandle {
+  color: #a5a3a3;
+  float: right;
+  padding-top: 4px;
+}
+
+#created-tweets footer {
+  background-color: #white;
+  border-top: 1px solid #d0cdcd;
+
+}
+#created-tweets .foot-text {
+  margin: 8px;
+  font-size: 8pt;
+}
