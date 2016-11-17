@@ -1,60 +1,71 @@
+$(function() {
 
-$(function () {
 
- function createTweetElement() {
-   var name = tweetData.user.name
-   var avatar = tweetData.user.avatars.small
-   var handle = tweetData.user.handle
-   var content = tweetData.content.text
-   var created = tweetData.created_at
-   var $tweet = $("<article>").addClass("tweet");
-   var $header = $('<header>');
-   var $footer = $('<footer>');
-   $tweet.append($header)
-   var $name = $('<h2>').addClass('head-text').text(name);
-   var $handle = $('<span>').addClass("userhandle").text(handle);
-   var $avatar = $('<img>').addClass("avatar").attr("src", avatar)
-   $header.append($handle).append($name).append($avatar)
-   $('#created-tweets').append($tweet)
-   var $tweettext = $('<p>').addClass("tweet-text").text(content)
-   $tweet.append($tweettext)
-   var $foottext = $('<p>').addClass("foot-text").text(created)
-   $footer.append($foottext)
-   $tweet.append($footer)
-   // return $tweet
-   // // }
-   // return $tweet
-   console.log($tweet[0])
- }
+
+  function renderTweets(tweets) {
+    var container = $('#created-tweets').html('');
+
+    tweets.forEach(function(tweet) {
+      var tweetInfo = createTweetElement(tweet)
+      console.log("tweetInfo", tweetInfo);
+      container.prepend(tweetInfo);
+    });
+  };
 
 
 
 
+  function createTweetElement(tweet) {
+    var name = tweet.user.name
+    var avatar = tweet.user.avatars.small
+    var handle = tweet.user.handle
+    var content = tweet.content.text
+    var created = tweet.created_at
+    var $tweet = $("<article>").addClass("tweet");
+    var $header = $('<header>');
+    var $footer = $('<footer>');
+    $tweet.append($header)
+    var $name = $('<h2>').addClass('head-text').text(name);
+    var $handle = $('<span>').addClass("userhandle").text(handle);
+    var $avatar = $('<img>').addClass("avatar").attr("src", avatar)
+    $header.append($handle).append($name).append($avatar)
+    var $tweettext = $('<p>').addClass("tweet-text").text(content)
+    $tweet.append($tweettext)
+    var $foottext = $('<p>').addClass("foot-text").text(created)
+    $footer.append($foottext)
+    $tweet.append($footer)
+    $('#tweets-container').append($tweet);
+    // console.log($tweet[0])
+    // $('#created-tweets').append($tweet)
+    return $tweet;
+  }
 
 
+  $('form[action="/tweets/"]').on('submit', function(event) {
+    event.preventDefault();
+    var tweetInput = $(this)
 
 
+    $.ajax({
+      method: 'post',
+      url: tweetInput.attr('action'),
+      data: tweetInput.find("textarea").serialize(),
+    }).done(function() {
+      loadTweets()
+    });
 
-var tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": {
-      "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-      "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-      "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-    },
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1461116232227
-}
+  });
 
-var $tweet = createTweetElement(tweetData);
+  function loadTweets() {
+    $.ajax({
+      type: 'get',
+      url: "/tweets/",
+      dataType: 'json',
+      success: function(tweetData) {
+        renderTweets(tweetData)
+      }
+    });
+  }
 
-// Test / driver code (temporary)
-console.log($tweet); // to see what it looks like
-$('#tweets-container').append($tweet);
-
+  loadTweets()
 });
