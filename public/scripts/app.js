@@ -11,16 +11,16 @@ $(function () {
    var $header = $('<header>');
    var $footer = $('<footer>');
    $tweet.append($header)
-   var $name = $('<h2>').addClass('.head-text').text(name);
-   var $handle = $('<span>').addClass(".userhandle").text(handle);
-   var $avatar = $('<img>').addClass(".avatar").attr("src", avatar)
+   var $name = $('<h2>').addClass('head-text').text(name);
+   var $handle = $('<span>').addClass("userhandle").text(handle);
+   var $avatar = $('<img>').addClass("avatar").attr("src", avatar)
    $header.append($handle).append($name).append($avatar)
    $('#created-tweets').append($tweet)
-   var $tweettext = $('<p>').addClass(".tweet-text").text(content)
+   var $tweettext = $('<p>').addClass("tweet-text").text(content)
    $tweet.append($tweettext)
+   var $foottext = $('<p>').addClass("foot-text").text(created)
    $footer.append($foottext)
-   var $foottext = $('<p>').addClass(".foot-text").text(created)
-   $tweet.append($foottext)
+   $tweet.append($footer)
    // return $tweet
    // // }
    // return $tweet
