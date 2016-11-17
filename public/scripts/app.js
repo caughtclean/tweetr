@@ -27,7 +27,7 @@ $(function() {
     $tweet.append($header)
     var $name = $('<h2>').addClass('head-text').text(name);
     var $handle = $('<span>').addClass("userhandle").text(handle);
-    var $avatar = $('<img>').addClass("avatar").attr("src", avatar)
+    var $avatar = $('<img>').addClass("grow").attr("src", avatar)
     $header.append($handle).append($name).append($avatar)
     var $tweettext = $('<p>').addClass("tweet-text").text(content)
     $tweet.append($tweettext)
@@ -44,6 +44,7 @@ $(function() {
   $('form[action="/tweets/"]').on('submit', function(event) {
     event.preventDefault();
     var tweetInput = $(this)
+    console.log(tweetInput)
 
 
     $.ajax({
@@ -53,9 +54,10 @@ $(function() {
     }).done(function() {
       loadTweets()
     });
-    $(this)[0].reset();
+
 
   });
+
 
   function loadTweets() {
     $.ajax({
@@ -69,4 +71,6 @@ $(function() {
   }
 
   loadTweets()
+
+
 });
