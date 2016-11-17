@@ -8,9 +8,10 @@
   -webkit-border-radius: 7px;
   margin-right: 2em;
   margin-left: 2em;
-  margin-bottom: 10px;
 
 }
+
+
 #created-tweets .tweet-text {
   margin: 30px 8px 30px 8px;
   font-size: 14pt;
@@ -55,9 +56,8 @@
   margin-left: 60px;
   float:center;
 
+
 }
-
-
 #created-tweets .userhandle {
   color: #a5a3a3;
   float: right;

@@ -53,6 +53,7 @@ $(function() {
     }).done(function() {
       loadTweets()
     });
+    $(this)[0].reset();
 
   });
 
