@@ -32,7 +32,13 @@ $(function() {
     var $tweettext = $('<p>').addClass("tweet-text").text(content)
     $tweet.append($tweettext)
     var $foottext = $('<p>').addClass("foot-text").text(created)
+
     $footer.append($foottext)
+    $footer.append('<i class="fa fa-heart" aria-hidden="true"></i>')
+    $footer.append('<i class="fa fa-retweet" aria-hidden="true"></i>')
+    $footer.append('<i class="fa fa-flag" aria-hidden="true"></i>')
+
+
     $tweet.append($footer)
     $('#tweets-container').append($tweet);
     // console.log($tweet[0])
