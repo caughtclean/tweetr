@@ -1,6 +1,6 @@
 
 "use strict";
-
+var cool = require('cool-ascii-faces');
 const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
@@ -21,6 +21,10 @@ db.connect(MONGODB_URI, (err, db) => {
 const DataHelpers = require("./lib/data-helpers.js")(db);
 
 const tweetsRoutes = require("./routes/tweets")(DataHelpers);
+
+app.get('/cool', function(request, response) {
+  response.send(cool());
+});
 
 app.use("/tweets", tweetsRoutes);
 
