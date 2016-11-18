@@ -84,6 +84,26 @@ $(function() {
 
   loadTweets()
 
+  $('.compose').click(function() {
+    $( '.compose' ).fadeTo( "fast", $('.compose').css("opacity") == "1" ? "0.5" : "1");
+    if ( $( '.new-tweet').is( ":hidden" ) ) {
+    $( '.new-tweet' ).slideDown( "ease" );
+    $('textarea').focus()
+  } else {
+    $( '.new-tweet' ).slideUp( "ease" );
+  }
+});
+
+
+
+
+
+
+
+  //   $('.new-tweet').slideDown("slow");
+  // });
+
+
 
 
 });
