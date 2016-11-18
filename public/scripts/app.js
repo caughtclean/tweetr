@@ -1,5 +1,7 @@
 $(function() {
 
+
+
   function renderTweets(tweets) {
     var container = $('#created-tweets').html('');
 
@@ -16,11 +18,7 @@ $(function() {
     var handle = tweet.user.handle
     var content = tweet.content.text
     var created = tweet.created_at
-    var today = Date.now()
-    var difference = today - created
-    var days = difference / (1000 * 60 * 60 * 24)
-    var final = Math.round(days)
-    var date = final
+    var time = moment(created).fromNow();
     var $tweet = $("<article>").addClass("tweet");
     var $header = $('<header>');
     var $footer = $('<footer>');
@@ -31,7 +29,7 @@ $(function() {
     $header.append($handle).append($name).append($avatar)
     var $tweettext = $('<p>').addClass("tweet-text").text(content)
     $tweet.append($tweettext)
-    var $foottext = $('<p>').addClass("foot-text").text(date + " days ago")
+    var $foottext = $('<p>').addClass("foot-text").text(time)
     $footer.append($foottext)
     $footer.append('<i class="fa fa-heart" aria-hidden="true"></i>')
     $footer.append('<i class="fa fa-retweet" aria-hidden="true"></i>')
