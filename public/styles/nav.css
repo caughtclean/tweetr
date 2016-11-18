@@ -8,7 +8,6 @@
     opacity: 1.0;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    margin-right: 16em;
     margin-left: 2em;
     margin-top: 9px;
   float: right;
@@ -55,9 +54,6 @@
   width: 80px;
   float: left;
   float: top;
-  margin-left: 22em;
-
-
 }
 
 #nav-bar .header {

@@ -47,13 +47,13 @@ $(function() {
     var tweetInput = $(this)
     var input = tweetInput.find("textarea").serialize()
     if (input.length > 145) {
-      alert("Exceeded maximum tweetage bro!")
+      $.flash("Exceeded maximum tweetage bro!")
       return
     }
 
     if (input === "text=") {
       event.preventDefault();
-      alert("Tweetage Empty!")
+      $.flash("Tweetage Empty!")
     } else
 
 
