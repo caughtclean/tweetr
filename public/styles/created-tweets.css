@@ -14,6 +14,8 @@ article.tweet {
 
 article.tweet:hover {
   opacity: 1.0;
+  border-color: black;
+  border-width: 2px;
 }
 
 
@@ -62,8 +64,8 @@ article.tweet:hover .grow {
     transform: scale(1.1);
     position: relative;
     bottom: 29px;
-    height: 60px;
-    width: 60px;
+    height: 63px;
+    width: 63px;
     margin-right: 12px;
     border-top-right-radius: 7px;
     border-top-left-radius: 7px;
@@ -109,17 +111,6 @@ article.tweet:hover .grow {
     margin-left: 60px;
 }
 
-
-/*header:hover .head-text, .avatar{
-color: green;
-.avatar {
-height: 65px;
-width: 65px;
-}
-
-}
-*/
-
 #created-tweets .userhandle {
     color: #a5a3a3;
     float: right;
@@ -135,7 +126,10 @@ i {
 
 }
 
-
+article.tweet:hover footer{
+  background-color: #white;
+    border-top: 1px solid black;
+}
 
 footer {
     background-color: #white;

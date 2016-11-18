@@ -38,8 +38,6 @@ $(function() {
     $footer.append('<i class="fa fa-flag" aria-hidden="true"></i>')
     $tweet.append($footer)
     $('#tweets-container').append($tweet);
-    // console.log($tweet[0])
-    // $('#created-tweets').append($tweet)
     return $tweet;
   }
 
@@ -52,11 +50,11 @@ $(function() {
       alert("Exceeded maximum tweetage bro!")
       return
     }
+
     if (input === "text=") {
       event.preventDefault();
       alert("Tweetage Empty!")
     } else
-
 
 
       $.ajax({
@@ -65,10 +63,15 @@ $(function() {
       data: tweetInput.find("textarea").serialize(),
     }).done(function() {
       loadTweets()
+      $('form[action="/tweets/"]').each(function() {
+        this.reset();
+      })
     });
 
 
   });
+
+
 
 
   function loadTweets() {
@@ -85,25 +88,14 @@ $(function() {
   loadTweets()
 
   $('.compose').click(function() {
-    $( '.compose' ).fadeTo( "fast", $('.compose').css("opacity") == "1" ? "0.5" : "1");
-    if ( $( '.new-tweet').is( ":hidden" ) ) {
-    $( '.new-tweet' ).slideDown( "ease" );
-    $('textarea').focus()
-  } else {
-    $( '.new-tweet' ).slideUp( "ease" );
-  }
-});
-
-
-
-
-
-
-
-  //   $('.new-tweet').slideDown("slow");
-  // });
-
-
+    $('.compose').fadeTo("fast", $('.compose').css("opacity") == "1" ? "0.5" : "1");
+    if ($('.new-tweet').is(":hidden")) {
+      $('.new-tweet').slideDown("ease");
+      $('textarea').focus()
+    } else {
+      $('.new-tweet').slideUp("ease");
+    }
+  });
 
 
 });
