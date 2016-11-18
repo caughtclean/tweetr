@@ -1,18 +1,13 @@
 $(function() {
 
-
-
   function renderTweets(tweets) {
     var container = $('#created-tweets').html('');
 
     tweets.forEach(function(tweet) {
       var tweetInfo = createTweetElement(tweet)
-      console.log("tweetInfo", tweetInfo);
       container.prepend(tweetInfo);
     });
   };
-
-
 
 
   function createTweetElement(tweet) {
@@ -21,6 +16,11 @@ $(function() {
     var handle = tweet.user.handle
     var content = tweet.content.text
     var created = tweet.created_at
+    var today = Date.now()
+    var difference = today - created
+    var days = difference / (1000 * 60 * 60 * 24)
+    var final = Math.round(days)
+    var date = final
     var $tweet = $("<article>").addClass("tweet");
     var $header = $('<header>');
     var $footer = $('<footer>');
@@ -31,14 +31,11 @@ $(function() {
     $header.append($handle).append($name).append($avatar)
     var $tweettext = $('<p>').addClass("tweet-text").text(content)
     $tweet.append($tweettext)
-    var $foottext = $('<p>').addClass("foot-text").text(created)
-
+    var $foottext = $('<p>').addClass("foot-text").text(date + " days ago")
     $footer.append($foottext)
     $footer.append('<i class="fa fa-heart" aria-hidden="true"></i>')
     $footer.append('<i class="fa fa-retweet" aria-hidden="true"></i>')
     $footer.append('<i class="fa fa-flag" aria-hidden="true"></i>')
-
-
     $tweet.append($footer)
     $('#tweets-container').append($tweet);
     // console.log($tweet[0])
@@ -50,10 +47,19 @@ $(function() {
   $('form[action="/tweets/"]').on('submit', function(event) {
     event.preventDefault();
     var tweetInput = $(this)
-    console.log(tweetInput)
+    var input = tweetInput.find("textarea").serialize()
+    if (input.length > 145) {
+      alert("Exceeded maximum tweetage bro!")
+      return
+    }
+    if (input === "text=") {
+      event.preventDefault();
+      alert("Tweetage Empty!")
+    } else
 
 
-    $.ajax({
+
+      $.ajax({
       method: 'post',
       url: tweetInput.attr('action'),
       data: tweetInput.find("textarea").serialize(),
@@ -77,6 +83,7 @@ $(function() {
   }
 
   loadTweets()
+
 
 
 });

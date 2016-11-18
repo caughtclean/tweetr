@@ -1,3 +1,37 @@
+
+#nav-bar .compose {
+  background-color: white;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    opacity: .5;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    margin-right: 16em;
+    margin-left: 2em;
+    margin-top: 9px;
+  float: right;
+  line-height: 60px;
+  color: black;
+  opacity: 1.0;
+  bottom: -20px;
+  font-size: 150%;
+  padding-right: 10px
+}
+
+ #nav-bar i {
+  font-size: 100%;
+  float: left;
+  line-height: 12px;
+  margin-left: 8px;
+  color: black;
+  opacity: 1.0;
+  bottom: -20px;
+
+ }
+
+
 #nav-bar {
   position: top;
   height: 80px;
@@ -13,6 +47,8 @@
   width: 80px;
   float: left;
   float: top;
+  margin-left: 22em;
+
 
 }
 
@@ -21,6 +57,5 @@
   float: left;
   line-height: 80px;
   margin-left: 10px;
-
 
 }
